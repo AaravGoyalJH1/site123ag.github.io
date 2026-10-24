@@ -1,1 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ZorinOS Sim Scratch | By AaravGoyalJH1</title>
 
+<meta name="description" content="Explore ZorinOS Sim, a Scratch project created by AaravGoyalJH1. Play the project on Scratch and visit the creator's profile.">
+
+<meta name="keywords" content="ZorinOS Sim, ZorinOS Simulator, Scratch Projects, AaravGoyalJH1, Zorin OS Scratch">
+
+<meta name="author" content="AaravGoyalJH1">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://aaravgoyaljh1.github.io/zorinos-sim-scratch/">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1020;
+      --panel: rgba(22, 31, 52, .82);
+      --text: #f4f7ff;
+      --muted: #aab6cf;
+      --blue: #4da3ff;
+      --cyan: #66e3ff;
+      --border: rgba(255,255,255,.12);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 15% 5%, rgba(42, 113, 255, .24), transparent 36rem),
+        radial-gradient(ellipse at 90% 25%, rgba(70, 220, 255, .12), transparent 32rem),
+        var(--bg);
+    }
+    a { color: inherit; }
+    .container { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(11,16,32,.76);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 800; letter-spacing: -.03em; }
+    .logo {
+      width: 42px; height: 42px; border-radius: 13px; display: grid; place-items: center;
+      color: #07111e; font-size: 22px; font-weight: 900;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      box-shadow: 0 8px 30px rgba(77,163,255,.25);
+    }
+    .nav-links { display: flex; align-items: center; gap: 22px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .94rem; }
+    .nav-links a:hover { color: var(--text); }
+    .button {
+      display: inline-flex; justify-content: center; align-items: center; gap: 9px;
+      border: 1px solid transparent; border-radius: 12px; padding: 12px 17px;
+      background: linear-gradient(135deg, #66e3ff, #4d8dff);
+      color: #07111e; font-weight: 800; text-decoration: none;
+      box-shadow: 0 8px 26px rgba(77,141,255,.22); transition: transform .18s ease, filter .18s ease;
+    }
+    .button:hover { transform: translateY(-2px); filter: brightness(1.08); }
+    .button.secondary { background: rgba(255,255,255,.06); border-color: var(--border); color: var(--text); box-shadow: none; }
+    .hero { padding: 76px 0 48px; text-align: center; }
+    .eyebrow {
+      display: inline-flex; gap: 8px; align-items: center; padding: 7px 12px; border: 1px solid var(--border);
+      border-radius: 999px; color: #c8eaff; background: rgba(77,163,255,.08); font-size: .84rem;
+    }
+    .dot { width: 7px; height: 7px; background: #6ee7b7; border-radius: 50%; box-shadow: 0 0 12px #6ee7b7; }
+    h1 { margin: 22px 0 16px; font-size: clamp(2.7rem, 7vw, 5.3rem); line-height: 1.02; letter-spacing: -.065em; }
+    .gradient-text { background: linear-gradient(100deg, #fff 10%, #8bdfff 50%, #7fa8ff 90%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero p { max-width: 660px; margin: 0 auto; color: var(--muted); font-size: clamp(1rem, 2.1vw, 1.18rem); line-height: 1.75; }
+    .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
+    section { padding: 54px 0; }
+    .section-heading { text-align: center; margin-bottom: 28px; }
+    .section-heading h2 { margin: 0 0 10px; font-size: clamp(1.8rem, 4vw, 2.5rem); letter-spacing: -.04em; }
+    .section-heading p { margin: 0; color: var(--muted); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { padding: 24px; border: 1px solid var(--border); border-radius: 18px; background: var(--panel); }
+    .card-icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 13px; background: rgba(77,163,255,.12); font-size: 1.25rem; margin-bottom: 17px; }
+    .card h3 { margin: 0 0 9px; font-size: 1.08rem; }
+    .card p { margin: 0; color: var(--muted); line-height: 1.65; font-size: .95rem; }
+    .credits-box { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 22px; padding: 26px; border-radius: 20px; border: 1px solid var(--border); background: linear-gradient(135deg, rgba(77,163,255,.12), rgba(102,227,255,.045)); }
+    .credits-box h2 { margin: 0 0 8px; }
+    .credits-box p { margin: 0; color: var(--muted); line-height: 1.7; }
+    footer { margin-top: 28px; border-top: 1px solid var(--border); padding: 26px 0; color: var(--muted); font-size: .88rem; }
+    .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    footer a { color: #b9e9ff; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .nav { min-height: 64px; }
+      .nav-links { gap: 12px; }
+      .nav-links .nav-about { display: none; }
+      .nav-links a { font-size: .86rem; }
+      .nav-links .button { padding: 10px 12px; }
+      .hero { padding-top: 55px; }
+      .cards { grid-template-columns: 1fr; }
+      .credits-box { padding: 22px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .button { transition: none; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="ZorinOS Sim Scratch home">
+        <span class="logo" aria-hidden="true">Z</span>
+        <span>ZorinOS Sim <span style="color:#7fdfff">Scratch</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-about" href="#about">About</a>
+        <a href="#credits">Credits</a>
+        <a class="button" href="https://scratch.mit.edu/projects/1387292727/" target="_blank" rel="noopener noreferrer">Open Project ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <span class="eyebrow"><span class="dot"></span> A Scratch creation</span>
+      <h1><span class="gradient-text">ZorinOS Sim</span><br>Scratch Edition</h1>
+      <p>Explore the ZorinOS Sim project created in Scratch by <strong>AaravGoyalJH1</strong>. Launch the project below, or open it directly on Scratch.</p>
+      <div class="hero-actions">
+        <a class="button" href="https://scratch.mit.edu/projects/1387292727/" target="_blank" rel="noopener noreferrer">▶ Play on Scratch</a>
+        <a class="button secondary" href="https://scratch.mit.edu/users/AaravGoyalJH1/" target="_blank" rel="noopener noreferrer">View Creator Profile ↗</a>
+      </div>
+    </section>
+
+    <section id="about" class="container">
+      <div class="section-heading">
+        <h2>About the project</h2>
+        <p>A simple home page for the ZorinOS Sim Scratch project.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">💻</div>
+          <h3>ZorinOS Sim</h3>
+          <p>Visit the Scratch project and explore the simulation for yourself.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">🧩</div>
+          <h3>Made with Scratch</h3>
+          <p>The project is hosted on Scratch. Use the embedded player or open the original project page.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">🌐</div>
+          <h3>Creator profile</h3>
+          <p>Find more projects and updates from the creator, AaravGoyalJH1, on Scratch.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="credits" class="container">
+      <div class="credits-box">
+        <div>
+          <h2>Credits</h2>
+          <p><strong>Creator:</strong> AaravGoyalJH1<br>
+          <strong>Project:</strong> ZorinOS Sim<br>
+          This page links to the original Scratch project and creator profile.</p>
+        </div>
+        <div class="hero-actions" style="margin-top:0; justify-content:flex-start">
+          <a class="button" href="https://scratch.mit.edu/users/AaravGoyalJH1/" target="_blank" rel="noopener noreferrer">AaravGoyalJH1 ↗</a>
+          <a class="button secondary" href="https://scratch.mit.edu/projects/1387292727/" target="_blank" rel="noopener noreferrer">Original Project ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>ZorinOS Sim Scratch</span>
+      <span>Created by <a href="https://scratch.mit.edu/users/AaravGoyalJH1/" target="_blank" rel="noopener noreferrer">AaravGoyalJH1</a></span>
+    </div>
+  </footer>
+</body>
+</html>
